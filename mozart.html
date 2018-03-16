@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html>
+    <head>
+        <!--
+            MOZART l'OPERA ROCK theme
+            judgmentalgiraffe.com
+        !-->
+
+        <meta name="if:Dark theme" content="1" />
+        <meta name="text:Font size" content="10pt" />
+        <meta name="text:Bio" content="Turpis massa augue ultricies parturient placerat turpis elementum, porta ultricies augue non. Pellentesque placerat rhoncus augue? Montes scelerisque rhoncus vel aenean adipiscing!" />
+        <meta name="image:Sidebar image" content="" />
+        <meta name="if:Use sidebar image" content="1" />
+
+        <title>{Title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        <style type="text/css">
+            
+            body {
+                font-family: century gothic, sans-serif;
+                font-size: {text:Font size};
+            }
+            a {
+                color: inherit;
+                text-decoration: underline;
+            }
+            a:hover {
+                text-decoration: none;
+            }
+            h1,h2,h3,h4,h5,h6 {
+                font-family: arial black;
+                font-weight: normal;
+                color: inherit;
+                letter-spacing: -.09em;
+                text-transform: uppercase;
+            }
+            h1 {
+                font-size: 4em;
+            }
+            h2 {
+                font-size: 3.1em;
+            }
+            h3 {
+                font-size: 2.2em;
+                margin: 10px 0;
+            }
+            h4 {
+                font-size: 1.6em;
+            }
+            h5 {
+                font-size: 1em;
+            }
+            h6 {
+                font-size: .8em;
+            }
+            
+            ul.chat {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            
+            {block:IfDarkTheme}
+                body {
+                    color: white;
+                    background: black;
+                }
+            {/block:IfDarkTheme}       
+            {block:IfNotDarkTheme}
+                body {
+                    color: black;
+                    background: white;
+                }
+            {/block:IfNotDarkTheme}
+            
+            #sidebar {
+                width: 250px;
+                position: fixed;
+                left: 50%;
+                top: 100px;
+                margin-left: -450px;
+                text-align: right;
+                font-size: .8em;
+            }
+                #sidebar-image {
+                    width: 250px;
+                    height: auto;
+                }
+                #menu {
+                    list-style-type: none;
+                    margin-right: 0;
+                    margin-left: 0;
+                    padding: 0;
+                    font-family: arial black;
+                    font-weight: normal;
+                    color: inherit;
+                    letter-spacing: -.09em;
+                    text-transform: uppercase;
+                    font-size: 2em;
+                }
+            #posts {
+                width: 500px;
+                position: absolute;
+                left: 50%;
+                margin-left: -50px;
+            }
+                #header {
+                    margin: 30px auto;
+                    text-align: center;
+                }
+                    #description {
+                        font-family: times new roman, serif;
+                        margin-top: -25px;
+                        letter-spacing: .8em;
+                        font-size: 14pt;
+                        text-transform: uppercase;
+                        margin-left: .8em;
+                    }
+                .post {
+                    margin-top: 70px;
+                }
+                    .splatter {
+                        width: 50px;
+                        height: 30px;
+                        background-size: 150px 150px;
+                        padding: 60px 52px 60px 48px;
+                        font-family: arial black;
+                        font-size: 1.8em;
+                        margin-left: -135px;
+                        margin-top: -40px;
+                        text-align: center;
+                    }
+                        .splatter a {
+                            text-decoration: none;
+                        }
+                    .post-body {
+                        text-align: justified;
+                        margin-top: -110px;
+                    }
+                        .label {
+                            font-family: arial black;
+                            letter-spacing: -.09em;
+                            text-transform: uppercase;
+                        }
+                    .meta {
+                        text-align: right;
+                        font-size: .8em;
+                        line-height: 1.4;
+                    }
+                #nav {
+                    font-family: arial black;
+                    letter-spacing: -.09em;
+                    text-transform: uppercase;
+                    margin-top: 70px;
+                    font-size: 1.2em;
+                }
+            
+        </style>
+    </head>
+    <body>
+    
+        <div id="sidebar">
+            {block:IfUseSidebarImage}
+                <img id="sidebar-image" src="{image:Sidebar image}"/>
+            {/block:IfUseSidebarImage}
+            <div id="bio">
+                <p>{text:Bio}</p>
+            </div>
+            <ul id="menu">
+                <li><a href="/">Home</a></li>
+                {block:AskEnabled}
+                    <li><a href="/ask">Ask</a></li>
+                {/block:AskEnabled}
+                {block:SubmissionsEnabled}
+                    <li><a href="/submit">Submit</a></li>
+                {/block:SubmissionsEnabled}
+                {block:HasPages}
+                    {block:Pages}
+                        <li><a href="{URL}">{Label}</a></li>
+                    {/block:Pages}
+                {/block:HasPages}
+                <li><a href="/random">Random</a></li>
+                <li><a href="/rss">RSS</a></li>
+                <li><a href="/archive">Archive</a></li>
+                <li><a href="http://www.judgmentalgiraffe.com/">Theme</a></li>
+            </ul>
+        </div>
+
+
+        <div id="posts">
+
+            <div id="header">
+                <a href="/"><h1>{Title}</h1></a>
+
+                {block:Description}
+                    <div id="description">{Description}</div>
+                {/block:Description}
+            </div>
+
+            {block:Posts}
+                <div class="post">
+                    <div class="title">
+                        {block:Text}
+                            {block:Title}
+                                <h3><a href="{Permalink}">{Title}</a></h3>
+                            {/block:Title}                        
+                        {/block:Text}
+                        {block:Link}
+                            <h3><a href="{URL}" class="link" {Target}>{Name} &#187;</a></h3>
+                        {/block:Link}
+                        {block:Chat}
+                            {block:Title}
+                                <h3><a href="{Permalink}">{Title}</a></h3>
+                            {/block:Title}
+                        {/block:Chat}
+                        {block:Answer}
+                            <h3><a href="{Permalink}">{Asker} asked:</a></h3>
+                        {/block:Answer}
+                    </div>
+                    <div class="splatter">
+                        <a href="{Permalink}">{NoteCount}</a>
+                    </div>
+                    <div class="post-body">
+                        {block:Text}
+                            {Body}
+                        {/block:Text}
+
+                        {block:Photo}
+                            <p><a href="PhotoURL-HighRes"><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></a></p>
+                            {block:Caption}
+                                {Caption}
+                            {/block:Caption}
+                        {/block:Photo}
+
+                        {block:Photoset}
+                            <p>{Photoset-500}</p>
+                            {block:Caption}
+                                {Caption}
+                            {/block:Caption}
+                        {/block:Photoset}
+
+                        {block:Quote}
+                            <p>&ldquo;{Quote}&rdquo;</p>
+                            {block:Source}
+                                <p>&mdash; {Source}</p>
+                            {/block:Source}
+                        {/block:Quote}
+
+                        {block:Link}
+                            {block:Description}
+                                {Description}
+                            {/block:Description}
+                        {/block:Link}
+
+                        {block:Chat}
+                            <p>
+                                <ul class="chat">
+                                    {block:Lines}
+                                        <li class="{Alt} user_{UserNumber}">
+                                            {block:Label}
+                                                <span class="label">{Label}</span>
+                                            {/block:Label}
+                                            {Line}
+                                        </li>
+                                    {/block:Lines}
+                                </ul>
+                            </p>
+                        {/block:Chat}
+
+                        {block:Video}
+                            <p>{Video-500}</p>
+                            {block:Caption}
+                                {Caption}
+                            {/block:Caption}
+                        {/block:Video}
+
+                        {block:Audio}
+                            {block:IfDarkTheme}
+                                <p>{AudioPlayerWhite}</p>
+                            {/block:IfDarkTheme}
+                            {block:IfNotDarkTheme}
+                                <p>{AudioPlayerBlack}</p>
+                            {/block:IfNotDarkTheme}
+                            {block:Caption}
+                                {Caption}
+                            {/block:Caption}
+                        {/block:Audio}
+
+                        {block:Answer}
+                            <blockquote>{Question}</blockquote>
+                            <p>{Answer}</p>
+                        {/block:Answer}
+                    </div>
+
+                    <div class="meta">
+                        {block:Date}
+                            Posted {TimeAgo}.
+                        {/block:Date}
+                        {block:HasTags}
+                            <div class="tags">
+                                {block:Tags}
+                                    #<a href="{TagURL}">{Tag}</a>&nbsp;
+                                {/block:Tags}
+                            </div>
+                        {/block:HasTags}
+                    </div>
+                </div>
+                
+                
+                {block:PostNotes}
+                    <div class="notes">
+                        {PostNotes}
+                    </div>
+                {/block:PostNotes}
+            {/block:Posts}
+            <p id="nav">
+                {block:PreviousPage}<a href="{PreviousPage}">{/block:PreviousPage}&#171; previous{block:PreviousPage}</a>{/block:PreviousPage} | {block:NextPage}<a href="{NextPage}">{/block:NextPage}next &#187;{block:NextPage}</a>{/block:NextPage}
+            </p>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                
+                var images = new Array();
+                
+                images[0] = 'http://i1347.photobucket.com/albums/p705/knzgrl/splat9_zps8313b455.png';
+                images[1] = 'http://i1347.photobucket.com/albums/p705/knzgrl/splat8_zps38d9d578.png';
+                images[2] = 'http://i1347.photobucket.com/albums/p705/knzgrl/spat10_zps646777a4.png';
+                
+                $('.splatter').each(function(index, elem) {
+                    var num = Math.floor(Math.random() * 3);
+                    $(this).css("background-image","url('"+images[num]+"')");
+                });
+                
+            });
+        </script>
+    </body>
+</html>
