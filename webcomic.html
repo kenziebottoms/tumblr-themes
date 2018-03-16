@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html>
+    <head>
+        <!--
+            WEBCOMIC theme
+            judgmentalgiraffe.com
+            Updated 3/29/2015
+        !-->
+        
+        <meta name="color:Sidebar background" content="#333"/>
+        <meta name="color:Sidebar horizontal divider" content="#555"/>
+        <meta name="color:Sidebar text" content="#bbb"/>
+        <meta name="color:Sidebar header text" content="#fff"/>
+        <meta name="color:Content background" content="#fff"/>
+        <meta name="color:Background background" content="#eee"/>
+        <meta name="color:Content text" content="#333"/>
+        <meta name="color:Navigation text" content="#fff"/>
+        <meta name="color:Navigation background" content="#aaa"/>
+        <meta name="text:Updates" content="Updates"/>
+        <meta name="image:Sidebar background image" content=""/>
+        <meta name="image:Background background image" content=""/>
+        <meta name="image:Navigation background image" content=""/>
+        <meta name="if:Use Link 1" content="0"/>
+        <meta name="text:Link 1 title" content="Link 1"/>
+        <meta name="text:Link 1 URL" content="http://link 1"/>
+        <meta name="if:Use Link 2" content="0"/>
+        <meta name="text:Link 2 title" content="Link 2"/>
+        <meta name="text:Link 2 URL" content="http://link 2"/>
+        <meta name="if:Use Link 3" content="0"/>
+        <meta name="text:Link 3 title" content="Link 3"/>
+        <meta name="text:Link 3 URL" content="http://link 3"/>
+
+        <title>{Title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <script src="//use.edgefonts.net/double-pica-small-caps.js"></script>
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        <style type="text/css">
+            
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+            blockquote {
+                margin-right: 0;
+                margin-left: 0;
+                padding-left: 2em;
+                border-left: 1px solid {color:Background background};
+            }
+            body {
+                font-size: 9pt;
+                font-family: verdana, arial, sans-serif;
+                line-height: 1.7em;
+                text-align: center;
+                margin: auto;
+                background: {color:Background background};
+                background-image: url({image:Background background image});
+                color: {color:Content text};
+            }
+            h1,h2,h3,h4,h5,h6 {
+                font-family: double-pica-small-caps, serif;
+                line-height: 1em;
+                color: {color:Content text};
+            }
+                #sidebar h1, #sidebar h2, #sidebar h3, #sidebar h4, #sidebar h5, #sidebar h6 {
+                    color: {color:Sidebar header text};
+                }
+                h1 {
+                    font-size: 33pt;
+                }
+                h2 {
+                    font-size: 20pt;
+                }
+                h3 {
+                    font-size: 14pt;
+                    margin: 20px 0;
+                }
+            img {
+            }
+            table {
+                font: inherit;
+                color: inherit;
+                text-align: inherit;
+                background: inherit;
+                margin: auto;
+            }
+                td {
+                    padding: 0;
+                    margin: 0;
+                    vertical-align: top;
+                }
+            #sidebar {
+                width: 300px;
+                height: 100%;
+                padding: 25px;
+                text-align: left;
+                position: fixed;
+                left: 70%;
+                color: {color:Sidebar text};
+                background: {color:Sidebar background};
+                background-image: url({image:Sidebar background image});
+            }
+                #title {
+                    margin-top: 20px;
+                    margin-bottom: 5px;
+                    font-weight: normal;
+                }
+                    #title a {
+                        color: {color:Sidebar header text};
+                    }
+                #subtitle {
+                    text-align: center;
+                    text-transform: uppercase;
+                    color: {color:Sidebar text};
+                    margin-bottom: 30px;
+                }
+                    #subtitle a {
+                        color: {color:Sidebar text};
+                    }
+                #desc {
+                    border-top: 1px solid {color:Sidebar horizontal divider};
+                    padding: 25px 0;
+                    margin: 0;
+                    text-align: justify;
+                    line-height: 1.6;
+                    min-height: 64px;
+                    color: {color:Sidebar header text};
+                }
+                    #desc img {
+                        float: left;
+                        margin-right: 15px;
+                        margin-bottom: 10px;
+                    }
+                ul.menu {
+                    color: {color:Sidebar text};
+                    list-style-type: none;
+                    text-transform: uppercase;
+                    margin: 0;
+                    padding: 25px 0;
+                    border-top: 1px solid {color:Sidebar horizontal divider};
+                }
+                    #sidebar h3 {
+                        margin-top: 3px;
+                        margin-bottom: .5em;
+                        text-transform: uppercase;
+                    }
+                    li.menu {
+                        padding: 0;
+                        margin: 0;
+                    }
+                    li.menu a {
+                        color: {color:Sidebar text};
+                    }
+                #pages {
+                    padding: 13px 0;
+                    text-align: center;
+                    text-transform: uppercase;
+                    border-top: 1px solid {color:Sidebar horizontal divider};
+                }
+                    #pages h3 {
+                        text-align: left;
+                    }
+                #updates {
+                    padding: 25px 0;
+                    border-top: 1px solid {color:Sidebar horizontal divider};
+                    font-size: .95em;
+                    line-height: 1.5em;
+                }
+            #nav {
+                font-size: 2em;
+                padding: 20px 0;
+                width: 100%;
+                background: {color:Navigation background};
+                background-image: url({image:Navigation background image});
+                color: {color:Navigation text};
+                text-align: center;
+                font-family: double-pica-small-caps, serif;
+            }
+            #posts {
+                width: 700px;
+                position: absolute;
+                left: 50%;
+                margin-left: -500px;
+                background: {color:Content background};
+            }
+                #post {
+                    width: 700px;
+                    text-align: justify;
+                    padding: 0 0 20px 0;
+                    border-bottom: 1px solid {color:Background background};
+                }
+                    #post a {                    
+                        color: {color:Navigation background};
+                    }
+                    #post h3 a {
+                        color:{color:Content text};
+                    }
+                    #post #fullwidth img {
+                        width: 100%;
+                    }
+                    #padded {
+                        margin-right: 10px;
+                        margin-left: 10px;
+                    }
+                    ul.chat {
+                        margin: 0;
+                        padding: 0;
+                        list-style-type: none;
+                    }
+                        .label {
+                            font-weight: bold;
+                        }
+                    .quote {
+                        font-size: 9pt;
+                    }
+                    .source {
+                        text-align: right;
+                    }
+                    #postfooter {
+                        color: gray;
+                        margin: auto;
+                        font-size: 7pt;
+                        text-align: center;
+                    }
+                    #notes {
+                        color: {color:Navigation background};
+                        font-size: 7pt;
+                        text-align: left;
+                        margin-top: 50px;
+                        width: 80%;
+                        margin: auto;
+                    }
+                        #notes ol {
+                            list-style-type: none;
+                        }
+            {CustomCSS}
+        </style>
+    </head>
+    <body>
+        <div id="sidebar">
+            <h1 id="title"><a href="/">{Title}</a></h1>
+            <p id="subtitle">
+                <a href="/">Home</a>
+                {block:AskEnabled}
+                    &nbsp;/&nbsp;&nbsp;<a href="/ask">Ask</a>
+                {/block:AskEnabled}
+                {block:SubmissionsEnabled}
+                    &nbsp;/&nbsp;&nbsp;<a href="/submit">Submit</a>
+                {/block:SubmissionsEnabled}
+                &nbsp;/&nbsp;&nbsp;<a href="/rss">RSS</a>
+                &nbsp;/&nbsp;&nbsp;<a href="http://www.judgmentalgiraffe.com/">Theme</a>
+            </p>
+            {block:Description}
+                <p id="desc">
+                    <img src="{PortraitURL-64}"/>
+                    {Description}
+                </p>
+            {/block:Description}
+
+            {block:HasPages}
+                <div id="pages">
+                    <a href="/random">Random</a>
+                    {block:Pages}
+                        &nbsp;/&nbsp;&nbsp;<a href="{URL}">{Label}</a>
+                    {/block:Pages}
+                </div>
+            {/block:HasPages}
+            {block:ifUseLink1}
+                <ul class="menu">
+                    <h3>Links</h3>
+                    <li class="menu">
+                        <a href="{text:Link 1 URL}">{text:Link 1 title}</a>
+                    </li>
+                {/block:ifUseLink1}
+                {block:ifUseLink2}
+                    <li class="menu">
+                        <a href="{text:Link 2 URL}">{text:Link 2 title}</a>
+                    </li>
+                {/block:ifUseLink2}
+                {block:ifUseLink3}
+                    <li class="menu">
+                        <a href="{text:Link 3 URL}">{text:Link 3 title}</a>
+                    </li>
+                {/block:ifUseLink3}
+            {block:ifUseLink1}
+                </ul>
+            {/block:ifUseLink1}
+            {block:HasPages}
+                {block:ifUseLink1}
+                    </ul>
+                {/block:ifUseLink1}
+            {/block:HasPages}
+
+            <div id="updates">
+                <h3>Updates</h3>
+                <p>
+                    {text:Updates}
+                </p>
+            </div>
+        </div>
+
+        <div id="posts">
+
+            <div id="nav">
+                <a href="/page/{TotalPages}">first</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                {block:NextPage}
+                    <a href="{NextPage}">&#171; previous</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                {/block:NextPage}
+
+                {block:PreviousPage}
+                    <a href="{PreviousPage}">next &#187;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                {/block:PreviousPage}
+
+                <a href="/">current</a>
+            </div>
+
+            {block:Posts}
+                <div id="post">
+                    <div id="fullwidth">
+                        {block:Photo}
+                            {block:PreviousPage}
+                                <a href="{PreviousPage}">
+                            {/block:PreviousPage}
+                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}"/>
+                            {block:PreviousPage}
+                                </a>
+                            {/block:PreviousPage}
+                        {/block:Photo}
+                        {block:Photoset}
+                            {Photoset-700}
+                        {/block:Photoset}
+                        {block:Audio}
+                            {AudioEmbed-640}
+                        {/block:Audio}
+                        {block:Video}
+                            {Video-700}
+                        {/block:Video}
+                    </div>
+
+                    <div id="padded">
+
+                        {block:Text}
+                            {block:Title}
+                                <h3><a href="{Permalink}">{Title}</a></h3>
+                            {/block:Title}
+                            {Body}
+                        {/block:Text}
+
+                        {block:Photo}
+                            {block:Caption}
+                                {Caption}
+                            {/block:Caption}
+                        {/block:Photo}
+
+                        {block:Photoset}
+                            {block:Caption}
+                                {Caption}
+                            {/block:Caption}
+                        {/block:Photoset}
+
+                        {block:Quote}
+                            <p class="quote">"{Quote}"</p>
+                            {block:Source}
+                                <p class="source">&mdash; {Source}</p>
+                            {/block:Source}
+                        {/block:Quote}
+
+                        {block:Link}
+                            <h3><a href="{URL}" class="link" {Target}>{Name}</a></h3>
+                            {block:Description}
+                                {Description}
+                            {/block:Description}
+                        {/block:Link}
+
+                        {block:Chat}
+                            <p>
+                                {block:Title}
+                                    <h3><a href="{Permalink}">{Title}</a></h3>
+                                {/block:Title}
+                                <ul class="chat">
+                                    {block:Lines}
+                                        <li class="{Alt} user_{UserNumber}">
+                                            {block:Label}
+                                                <span class="label">{Label}</span>
+                                            {/block:Label}
+                                            {Line}
+                                        </li>
+                                    {/block:Lines}
+                                </ul>
+                            </p>
+                        {/block:Chat}
+
+                        {block:Video}
+                            {block:Caption}
+                                {Caption}
+                            {/block:Caption}
+                        {/block:Video}
+
+                        {block:Audio}
+                            {block:Caption}
+                                {Caption}
+                            {/block:Caption}
+                        {/block:Audio}
+
+                        {block:Answer}
+                            <h3><a href="{Permalink}">{Asker} asked:</a></h3>
+                            <blockquote>{Question}</blockquote>
+                            <p>{Answer}</p>
+                        {/block:Answer}
+                    </div>
+
+                    <div id="postfooter">
+                        <a href="{Permalink}">
+                            {TimeAgo}
+                            {block:NoteCount}
+                                / {NoteCountWithLabel}
+                            {/block:NoteCount}
+                        </a>
+                    </div>
+                    
+                    {block:PostNotes}
+                        <div id="notes">
+                            {PostNotes}
+                        </div>
+                    {/block:PostNotes}
+                </div>
+            {/block:Posts}
+
+            <div id="nav">
+                <a href="/page/{TotalPages}">first</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                {block:NextPage}
+                    <a href="{NextPage}">&#171; previous</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                {/block:NextPage}
+
+                {block:PreviousPage}
+                    <a href="{PreviousPage}">next &#187;</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                {/block:PreviousPage}
+
+                <a href="/">current</a>
+            </div>
+
+        </div>
+    </body>
+</html>

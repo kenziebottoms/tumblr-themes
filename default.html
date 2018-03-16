@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html>
+    <head>
+        <!--
+            theme
+            judgmentalgiraffe.com
+        !-->
+        
+		<meta name="text:Bio" content="Turpis massa augue ultricies parturient placerat turpis elementum, porta ultricies augue non. Pellentesque placerat rhoncus augue? Montes scelerisque rhoncus vel aenean adipiscing!"/>
+
+        <title>{Title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        <style type="text/css">
+        
+            ul.chat {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+        
+        </style>
+    </head>
+    <body>
+    
+        <div id="sidebar">
+            <div id="bio">
+                <p>{text:Bio}</p>
+            </div>
+            <ul id="menu">
+                <li><a href="/">Home</a></li>
+                {block:AskEnabled}
+                    <li><a href="/ask">Ask</a></li>
+                {/block:AskEnabled}
+                {block:SubmissionsEnabled}
+                    <li><a href="/submit">Submit</a></li>
+                {/block:SubmissionsEnabled}
+                {block:HasPages}
+                    {block:Pages}
+                        <li><a href="{URL}">{Label}</a></li>
+                    {/block:Pages}
+                {/block:HasPages}
+                <li><a href="/random">Random</a></li>
+                <li><a href="/rss">RSS</a></li>
+                <li><a href="/archive">Archive</a></li>
+                <li><a href="http://www.judgmentalgiraffe.com/">Theme</a></li>
+            </ul>
+        </div>
+
+        <div id="posts">
+            <div id="header">
+                <a href="/"><h1>{Title}</h1></a>
+
+                {block:Description}
+                    <p id="description">{Description}</p>
+                {/block:Description}
+            </div>
+
+            {block:Posts}
+                <div class="post">
+                    {block:Text}
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+                        {Body}
+                    {/block:Text}
+
+                    {block:Photo}
+                        <p><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></p>
+                        {block:Caption}
+                            {Caption}
+                        {/block:Caption}
+                    {/block:Photo}
+
+                    {block:Photoset}
+                        <p>{Photoset-500}</p>
+                        {block:Caption}
+                            {Caption}
+                        {/block:Caption}
+                    {/block:Photoset}
+
+                    {block:Quote}
+                        <p>&ldquo;{Quote}&rdquo;</p>
+                        {block:Source}
+                            <p>&mdash; {Source}</p>
+                        {/block:Source}
+                    {/block:Quote}
+
+                    {block:Link}
+                        <h3><a href="{URL}" class="link" {Target}>{Name} &#187;</a></h3>
+                        {block:Description}
+                            {Description}
+                        {/block:Description}
+                    {/block:Link}
+
+					{block:Chat}
+						{block:Title}
+							<h3><a href="{Permalink}">{Title}</a></h3>
+						{/block:Title}
+                        <p>
+                            <ul class="chat">
+                                {block:Lines}
+                                    <li class="{Alt} user_{UserNumber}">
+                                        {block:Label}
+                                            <span class="label">{Label}</span>
+                                        {/block:Label}
+                                        {Line}
+                                    </li>
+                                {/block:Lines}
+                            </ul>
+                        </p>
+                    {/block:Chat}
+
+                    {block:Video}
+                        <p>{Video-500}</p>
+                        {block:Caption}
+                            {Caption}
+                        {/block:Caption}
+                    {/block:Video}
+
+                    {block:Audio}
+                        <p>{AudioEmbed}</p>
+                        {block:Caption}
+                            {Caption}
+                        {/block:Caption}
+                    {/block:Audio}
+
+                    {block:Answer}
+                        <h3><a href="{Permalink}">{Asker} asked:</a></h3>
+                        <blockquote>{Question}</blockquote>
+                        <p>{Answer}</p>
+                    {/block:Answer}
+                    
+                    {block:HasTags}
+                        <div class="tags">
+                            {block:Tags}
+                                <a href="{TagURL}">{Tag}</a>&nbsp;&nbsp;
+                            {/block:Tags}
+                        </div>
+                    {/block:HasTags}
+                </div>
+                
+                {block:PostNotes}
+                    <div class="notes">
+                        {PostNotes}
+                    </div>
+                {/block:PostNotes}
+            {/block:Posts}
+            <p id="nav">
+                {block:PreviousPage}<a href="{PreviousPage}">{/block:PreviousPage}&#171; previous{block:PreviousPage}</a>{/block:PreviousPage} | {block:NextPage}<a href="{NextPage}">{/block:NextPage}next &#187;{block:NextPage}</a>{/block:NextPage}
+            </p>
+        </div>        
+    </body>
+</html>
