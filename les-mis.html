@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html>
+    <head>
+        <!--
+            LES MIS&eacute;RABLES theme
+            judgmentalgiraffe.com
+            Updated 7/8/2013
+        !-->
+        
+        <meta name="text:Bio" content="Turpis massa augue ultricies parturient placerat turpis elementum, porta ultricies augue non. Pellentesque placerat rhoncus augue? Montes scelerisque rhoncus vel aenean adipiscing!" />
+
+        <title>{Title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        <style type="text/css">
+		
+			@font-face {
+				font-family: caslan;
+				src: url(https://dl.dropbox.com/s/5mcvksunio14im3/CASLANTR.TTF?dl=1);
+			}
+			
+			body {
+				margin: auto;
+				color: white;
+				background: black;
+				text-align: justify;
+				font: 10pt verdana;
+				line-height: 1.5;
+			}
+			a {
+				color: #557CA5;
+				text-decoration: none;
+			}
+				a:hover {
+					border-bottom: 1px solid #777;
+				}
+			h1, h2, h3 {
+				font-family: caslan;
+				margin-top: 50px;
+				margin-bottom: 0;
+				font-weight: normal;
+				color: #BC431E;
+			}
+			h1, h2, h3 a {
+				color: #BC431E;
+			}
+			h1 {
+				font-size: 4em;
+				text-align: center;
+                margin: 0;
+			}
+			h2 {
+				font-size: 2.5em;
+                margin: 0;
+                margin-top: -20px;
+			}
+			h3 {
+				font-size: 2em;
+			}
+			blockquote {
+				padding: 0 1em;
+				margin: 1em 0;
+				border-left: 1px solid #777;
+				border-right: 1px solid #777;
+			}
+			
+			#header {
+				text-align: center;
+                margin: 50px auto 0 auto;
+			}
+			#menu {
+				list-style-type: none;
+				line-height: 1.2;
+				margin: 0;
+				padding: 0;
+				font-size: 2em;
+                font-family: caslan;
+			}
+            #menu a {
+				color: #BC431E;
+            }
+			#sidebar {
+				width: 250px;
+				position: fixed;
+				left: 50%;
+				top: 50px;
+				margin-left: 175px;
+			}			
+			#posts {
+				width: 500px;
+				position: absolute;
+				left: 50%;
+				margin-left: -425px;
+			}
+			#nav {
+				font-size: .8em;
+				text-align: center;
+				color: #777;
+			}
+			#backimage {
+				background-image: url(http://i643.photobucket.com/albums/uu156/Shifting/cosettedark-2.png);
+				background-repeat: no-repeat;
+				height: 401px;
+				width: 279px;
+				position: fixed;
+				left: 100%;
+				margin-left: -279px;
+				top: 100%;
+				margin-top: -401px;
+				z-order: -1;
+			}
+			
+			.post {
+				margin: 100px 0;
+			}
+			.quote {
+				font-family: caslan;
+				font-size: 17pt;
+				line-height: 1;
+			}
+            .source {
+                text-align: right;
+            }
+			.tags {
+				color: #777;
+				text-align: center;
+			}
+			.notes {
+				font-size: .9em;
+				margin: 50px auto;
+			}
+				.notes li {
+					list-style-type: none;
+				}
+			.chat li {
+				list-style-type: none;
+			}
+			.chat {
+				margin: 0;
+				padding: 0;
+			}
+			.label {
+				color: #777;
+				font-weight: bold;
+			}
+			
+        </style>
+    </head>
+    <body>
+		<div id="backimage">
+		</div>
+    
+        <div id="sidebar">
+            <p id="bio">
+                {text:Bio}
+            </p>
+            <ul id="menu">
+                <li><a href="/">Home</a></li>
+                {block:AskEnabled}
+                    <li><a href="/ask">Ask</a></li>
+                {/block:AskEnabled}
+                {block:SubmissionsEnabled}
+                    <li><a href="/submit">Submit</a></li>
+                {/block:SubmissionsEnabled}
+                {block:HasPages}
+                    {block:Pages}
+                        <li><a href="{URL}">{Label}</a></li>
+                    {/block:Pages}
+                {/block:HasPages}
+                <li><a href="/random">Random</a></li>
+                <li><a href="/archive">Archive</a></li>
+                <li><a href="http://www.judgmentalgiraffe.com/">Theme</a></li>
+            </ul>
+            <p id="nav">
+                {block:PreviousPage}<a href="{PreviousPage}">{/block:PreviousPage}&#171; previous{block:PreviousPage}</a>{/block:PreviousPage} |
+
+                {block:NextPage}<a href="{NextPage}">{/block:NextPage}next &#187;{block:NextPage}</a>{/block:NextPage}
+            </p>
+        </div>
+
+        <div id="posts">
+            <div id="header">
+                <a href="/"><h1>{Title}</h1></a>
+				<h2 id="description">{Description}</h2>
+            </div>
+
+            {block:Posts}
+                <div class="post">
+                    {block:Text}
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+                        {Body}
+                    {/block:Text}
+
+                    {block:Photo}
+                        <p><img src="{PhotoURL-500}" alt="{PhotoAlt}"/></p>
+                        {block:Caption}
+                            {Caption}
+                        {/block:Caption}
+                    {/block:Photo}
+
+                    {block:Photoset}
+                        <p>{Photoset-500}</p>
+                        {block:Caption}
+                            {Caption}
+                        {/block:Caption}
+                    {/block:Photoset}
+
+                    {block:Quote}
+                        <p class="quote">&ldquo;{Quote}&rdquo;</p>
+                        {block:Source}
+                            <p class="source">&mdash; {Source}</p>
+                        {/block:Source}
+                    {/block:Quote}
+
+                    {block:Link}
+                        <h3><a href="{URL}" class="link" {Target}>{Name}</a></h3>
+                        {block:Description}
+                            {Description}
+                        {/block:Description}
+                    {/block:Link}
+
+					{block:Chat}
+						{block:Title}
+							<h3><a href="{Permalink}">{Title}</a></h3>
+						{/block:Title}
+                        <p>
+                            <ul class="chat">
+                                {block:Lines}
+                                    <li class="{Alt} user_{UserNumber}">
+                                        {block:Label}
+                                            <span class="label">{Label}</span>
+                                        {/block:Label}
+                                        {Line}
+                                    </li>
+                                {/block:Lines}
+                            </ul>
+                        </p>
+                    {/block:Chat}
+
+                    {block:Video}
+                        <p>{Video-500}</p>
+                        {block:Caption}
+                            {Caption}
+                        {/block:Caption}
+                    {/block:Video}
+
+                    {block:Audio}
+                        <p>{AudioPlayerWhite}</p>
+                        {block:Caption}
+                            {Caption}
+                        {/block:Caption}
+                    {/block:Audio}
+                    
+                    {block:Answer}
+                        <h3><a href="{Permalink}">{Asker} asked:</a></h3>
+                        <blockquote>{Question}</blockquote>
+                        <p>{Answer}</p>
+                    {/block:Answer}
+                    
+					<div class="tags">
+						{block:HasTags}
+                            {block:Tags}
+                                #<a href="{TagURL}">{Tag}</a>
+                            {/block:Tags}&middot;
+						{/block:HasTags}
+						{block:Date}
+							<a href="{Permalink}">{MonthNumber}.{DayOfMonth}.{Year}{block:NoteCount} with {NoteCountWithLabel}{/block:NoteCount}</a>
+						{/block:Date}
+					</div>
+                </div>
+                
+                {block:PostNotes}
+                    <div class="notes">
+                        {PostNotes}
+                    </div>
+                {/block:PostNotes}
+            {/block:Posts}
+        </div>        
+    </body>
+</html>
