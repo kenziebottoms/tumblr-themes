@@ -4,7 +4,6 @@
 
 - [Tumblr Themes](#tumblr-themes)
     - [Acrylic](#acrylic)
-    - [Colors of the Wind](#colors-of-the-wind)
     - [Courier](#courier)
     - [December](#december)
     - [Enjolras](#enjolras)
@@ -31,9 +30,6 @@ Made between 2012 and 2015. My first templating language. :joy:
 
 ### Acrylic
 ![https://i.imgur.com/KtKm78V.png](https://i.imgur.com/KtKm78V.png)
-
-### Colors of the Wind
-![https://i.imgur.com/nLvSy8U.png](https://i.imgur.com/nLvSy8U.png)
 
 ### Courier
 ![https://i.imgur.com/Cw3m4wJ.png](https://i.imgur.com/Cw3m4wJ.png)
